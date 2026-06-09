@@ -1,6 +1,6 @@
 # Reagan Fwamba — Portfolio
 
-**Live site:** [reaganfwamba.com](https://reaganfwamba.com)  
+**Live site:** [reaganfwamba.com](https://fantastic-duckanoo-6c6eb7.netlify.app/)  
 **Built by:** Reagan Fwamba — Full-Stack Engineer, The Reggs Limited
 
 ---
@@ -304,7 +304,7 @@ The Reggs Limited, Naivasha / Ongata Rongai, Kenya
 
 - Email: reaganfwambaa@gmail.com  
 - GitHub: [github.com/couldbereggsf](https://github.com/couldbereggsf)
-- LinkedIn: [linkedin.com/in/reaganfwamba](https://linkedin.com/in/reaganfwamba)
+- LinkedIn: [linkedin.com/in/reaganfwamba](www.linkedin.com/in/reagan-f-04a448244)
 
 ---
 
