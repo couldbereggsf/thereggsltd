@@ -1,6 +1,7 @@
 # Reagan Fwamba — Portfolio
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c8e792f1-ce0f-4bdb-9ba7-769c6802567f/deploy-status)](https://app.netlify.com/projects/thereggsltd/deploys)
-**Live site:** [reaganfwamba.com](thereggsltd.netlify.app)  
+
+**Live site:** [reaganfwamba.com](https://6a27e50fd6b8950008d8bb92--thereggsltd.netlify.app/)  
 **Built by:** Reagan Fwamba — Full-Stack Engineer, The Reggs Limited
 
 ---
