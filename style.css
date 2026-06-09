@@ -1014,13 +1014,41 @@ footer {
   gap: 3rem;
   margin-bottom: 3rem;
 }
-.footer-brand { max-width: 320px; }
-.footer-brand .logo { margin-bottom: 1rem; }
-.footer-brand p {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
+/* ── Footer logo styling ─────────────────────────────── */
+
+.footer-brand {
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+}
+
+/* Inherit text color for the logo to allow for dark mode adaptability */
+.footer-brand span {
+  color: inherit;
+}
+
+/* Make the logo link flex inside the footer        */
+.footer-brand .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+/* Keep the image the right size                    */
+.footer-brand .logo-mark {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+/* Style the name text next to the logo             */
+.footer-brand .logo-name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--cream);
+  letter-spacing: 0.02em;
 }
 .footer-social { display: flex; gap: 0.75rem; }
 .footer-social a {
