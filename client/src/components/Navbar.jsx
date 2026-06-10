@@ -1,4 +1,4 @@
-// client/src/components/Navbar.jsx
+// src/components/Navbar.jsx
 import { useState, useEffect } from 'react'
 
 export default function Navbar() {
@@ -14,7 +14,6 @@ export default function Navbar() {
     return (
         <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
             <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
-
                 <a href="#hero" className="nav-logo">
                     <img
                         src="/assets/images/logo.png"
@@ -25,10 +24,8 @@ export default function Navbar() {
                     />
                     <span>Reagan Fwamba</span>
                 </a>
-
                 <nav
                     className={`nav-menu ${menuOpen ? 'open' : ''}`}
-                    id="navMenu"
                     role="navigation"
                 >
                     <a href="#hero" className="nav-link" onClick={() => setMenuOpen(false)}>Home</a>
@@ -38,18 +35,14 @@ export default function Navbar() {
                     <a href="#contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</a>
                     <a href="mailto:reaganfwambaa@gmail.com" className="nav-cta">Hire Me</a>
                 </nav>
-
                 <button
                     className={`mobile-menu-btn ${menuOpen ? 'open' : ''}`}
                     onClick={() => setMenuOpen(!menuOpen)}
                     aria-label="Toggle navigation"
                     aria-expanded={menuOpen}
                 >
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </button>
-
             </div>
         </header>
     )
