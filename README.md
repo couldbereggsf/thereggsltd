@@ -220,7 +220,76 @@ cd backend
 # Or via Docker
 docker compose up --build
 ```
+## Pull Request: Phase 1 — HTML/CSS Foundation
 
+**Closes:** #<!-- issue number if any -->  
+**Type:** feat (foundation)  
+**Deployed preview:** https://thereggsltd.netlify.app
+
+---
+
+### 📦 What changed
+
+- **Dark Forest Luxury design system** – Forest Green (`#2A3D45`) + Warm Amber (`#C17C74`) + Cream (`#e8dcd4`)
+- Fully responsive HTML/CSS portfolio with **Phosphor Icons** (CDN)
+- **Continuous deployment** from `main` → Netlify auto‑deploy
+- **Security headers** – `netlify.toml` with:
+  - `X-Frame-Options: DENY`
+  - Content‑Security‑Policy (CSP) allowing only required sources
+  - `Referrer-Policy: strict-origin-when-cross-origin`
+- **Custom logo** in both navigation bar and footer
+- **Branch strategy**:
+  - `main` → live production
+  - `dev` → integration branch
+  - `feat/*` → feature branches (branch from `dev`, merge back via PR)
+
+---
+
+### 🐞 Issues resolved
+
+| Problem | Solution |
+|---------|----------|
+| Phosphor Icons CDN blocked by CSP | Added `unpkg.com` to `style-src` and `font-src` in `netlify.toml` |
+| Footer logo rendered as plain text | Targeted CSS overrides to restore flex + image styles |
+| `.DS_Store` accidentally committed | `git rm --cached .DS_Store` + added to `.gitignore` |
+| Duplicate GitHub URL in footer | Corrected markup (only one link remains) |
+
+---
+
+### 📘 Lessons documented
+
+- ✅ Always test CSP headers **against every external CDN** before deployment.
+- ✅ Rename `portfolio.html` → `index.html` **before** the first deploy.
+- ✅ `git rm --cached` removes files from tracking **without deleting them locally**.
+- ✅ `feat/*` branches should **never** be worked on directly – always branch from `dev`.
+
+---
+
+### 🧪 How to test
+
+1. Clone the branch  
+2. Open `index.html` locally or visit the Netlify preview  
+3. Verify:
+   - Phosphor icons render correctly
+   - Security headers present (DevTools → Network → Response Headers)
+   - Logo appears in header and footer
+   - No `.DS_Store` in git status
+
+---
+
+### 🚨 Breaking changes
+
+None – this is a fresh foundation.
+
+---
+
+### ✅ Checklist before merge
+
+- [ ] PR targets `dev` (or `main` for hotfix)
+- [ ] All issues resolved
+- [ ] CSP headers tested
+- [ ] Responsive layout verified (mobile/tablet/desktop)
+- [ ] No console errors
 ---
 
 ## Branch Strategy
