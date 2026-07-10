@@ -1,0 +1,239 @@
+/* Global Styles — Reagan Fwamba Portfolio */
+
+:root {
+    --bg: #0c1a1d;
+    --bg-alt: #101f23;
+    --surface: #152026;
+    --surface-2: #1c2d33;
+    --surface-3: #243540;
+    --primary: #2A3D45;
+    --accent: #C17C74;
+    --accent-lt: #d4958e;
+    --accent-dim: rgba(193, 124, 116, 0.14);
+    --accent-glow: rgba(193, 124, 116, 0.22);
+    --text: #e8dcd4;
+    --text-muted: #9a8d84;
+    --text-faint: #635c57;
+    --border: rgba(220, 200, 180, 0.1);
+    --border-acc: rgba(193, 124, 116, 0.28);
+    --glass-bg: rgba(12, 26, 29, 0.65);
+    --glass-border: rgba(220, 200, 180, 0.12);
+    --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.35);
+    --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.45);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.55);
+    --shadow-acc: 0 8px 30px rgba(193, 124, 116, 0.2);
+    --radius-sm: 0.75rem;
+    --radius-md: 1.25rem;
+    --radius-lg: 1.75rem;
+    --radius-xl: 2.5rem;
+    --font-display: 'Syne', system-ui, sans-serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'DM Mono', 'Courier New', monospace;
+    --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --transition: 0.3s var(--ease-out);
+    --transition-slow: 0.6s var(--ease-out);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+    font: inherit;
+    background: none;
+    border: none;
+    color: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+::selection {
+    background: var(--accent);
+    color: #fff;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.section-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+}
+
+.section-heading em {
+    color: var(--accent);
+    font-style: normal;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: var(--transition);
+    border: 1px solid transparent;
+    background: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #0c1a1d;
+    border-color: var(--accent);
+}
+
+.btn-primary:hover {
+    background: var(--accent-lt);
+    transform: translateY(-2px);
+}
+
+.btn-ghost {
+    border-color: var(--border);
+}
+
+.btn-ghost:hover {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+}
+
+section {
+    padding: 80px 0;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 60px 0;
+    }
+}
+
+/* Scroll Reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.rd1 {
+    transition-delay: 0.05s;
+}
+
+.rd2 {
+    transition-delay: 0.1s;
+}
+
+.rd3 {
+    transition-delay: 0.15s;
+}
+
+.rd4 {
+    transition-delay: 0.2s;
+}
+
+.rd5 {
+    transition-delay: 0.25s;
+}
+
+.rd6 {
+    transition-delay: 0.3s;
+}
+
+.rd7 {
+    transition-delay: 0.35s;
+}
+
+.rd8 {
+    transition-delay: 0.4s;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+}
