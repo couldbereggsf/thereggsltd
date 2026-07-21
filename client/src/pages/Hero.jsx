@@ -82,7 +82,7 @@ export default function Hero() {
                                 Building secure, scalable systems that solve real business problems.
                             </p>
 
-                            {/* ─── Announcement Section (replaces countdown) ─── */}
+                            {/* ─── Announcement Section ─── */}
                             <div className="announcement reveal rd4">
                                 <span className="announcement-badge">📢 Latest Updates</span>
                                 <div className="announcement-items">
