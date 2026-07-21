@@ -308,6 +308,8 @@ header.scrolled {
 
 .navmenu {
     display: flex;
+    justify-content: space-between;
+    padding: 1rem 4rem;
     align-items: center;
     gap: 0.5rem;
     margin-left: auto;
@@ -681,7 +683,7 @@ header.scrolled {
     position: absolute;
     background: var(--surface-2);
     backdrop-filter: blur(8px);
-    padding: 0.4rem 0.9rem;
+    padding: 0.2rem 0.9rem;
     border-radius: var(--radius-md);
     font-size: 0.7rem;
     font-weight: 500;
@@ -696,7 +698,7 @@ header.scrolled {
 }
 
 .chip-1 {
-    top: -8%;
+    top: -10%;
     left: -12%;
     animation-delay: 0s;
 }
@@ -766,6 +768,15 @@ header.scrolled {
     left: -8px;
     right: -8px;
     bottom: -8px;
+}
+.about-cta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem; 
+}
+.about-cta .btn:first-child {
+    margin-right: 1.5rem; 
 }
 
 .profile-image {
