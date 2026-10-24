@@ -1,26 +1,84 @@
 import React, { useState, useEffect } from 'react'
-import { Link, NavLink } from 'react-router-dom'
 import logo from '../assets/logo.png'
 import styles from './Header.module.css'
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false)
     const [mobileOpen, setMobileOpen] = useState(false)
+    const [activeSection, setActiveSection] = useState('hero')
 
     useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 50)
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50)
+
+            // Simple scroll spy to highlight active section
+            const sections = ['hero', 'about', 'features', 'projects', 'contact']
+            let current = 'hero'
+            sections.forEach(id => {
+                const el = document.getElementById(id)
+                if (el && window.scrollY >= el.offsetTop - 200) {
+                    current = id
+                }
+            })
+            setActiveSection(current)
+        }
+
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
+    const handleNavClick = (e, id) => {
+        e.preventDefault()
+        setMobileOpen(false)
+        const el = document.getElementById(id)
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }
+
+    const navItems = [
+        { id: 'hero', label: 'Home', icon: 'ph-house' },
+        { id: 'about', label: 'About', icon: 'ph-user' },
+        { id: 'features', label: 'Services', icon: 'ph-briefcase' },
+        { id: 'projects', label: 'Projects', icon: 'ph-folder' },
+    ]
+
     return (
         <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
-            <div className={styles.container}>
-                <Link to="/" className={styles.logo}>
-                    <img src={logo} alt="The Reggs Limited logo" className={styles.logoMark} />
-                    <span className={styles.logoName}>Reagan Fwamba</span>
-                </Link>
+            {/* The floating dock */}
+            <div className={styles.dock}>
 
+                {/* Logo */}
+                <a href="#hero" className={styles.logo} onClick={(e) => handleNavClick(e, 'hero')}>
+                    <img src={logo} alt="RF" className={styles.logoMark} />
+                </a>
+
+                <div className={styles.divider}></div>
+
+                {/* Nav Items */}
+                <nav className={`${styles.nav} ${mobileOpen ? styles.open : ''}`}>
+                    {navItems.map((item) => (
+                        <a
+                            key={item.id}
+                            href={`#${item.id}`}
+                            className={`${styles.navItem} ${activeSection === item.id ? styles.active : ''}`}
+                            onClick={(e) => handleNavClick(e, item.id)}
+                        >
+                            <i className={`ph ${item.icon}`}></i>
+                            <span>{item.label}</span>
+                        </a>
+                    ))}
+                </nav>
+
+                {/* CTA Button */}
+                <a
+                    href="#contact"
+                    className={styles.ctaBtn}
+                    onClick={(e) => handleNavClick(e, 'contact')}
+                    aria-label="Contact Me"
+                >
+                    <i className="ph ph-paper-plane-tilt"></i>
+                </a>
+
+                {/* Mobile Hamburger */}
                 <button
                     className={`${styles.mobileBtn} ${mobileOpen ? styles.active : ''}`}
                     onClick={() => setMobileOpen(!mobileOpen)}
@@ -28,24 +86,6 @@ export default function Header() {
                 >
                     <span></span><span></span><span></span>
                 </button>
-
-                <nav className={`${styles.nav} ${mobileOpen ? styles.open : ''}`}>
-                    <NavLink to="/" className={({ isActive }) => isActive ? styles.active : ''} onClick={() => setMobileOpen(false)}>
-                        Home
-                    </NavLink>
-                    <NavLink to="/about" onClick={() => setMobileOpen(false)}>
-                        About
-                    </NavLink>
-                    <NavLink to="/projects" onClick={() => setMobileOpen(false)}>
-                        Projects
-                    </NavLink>
-                    <NavLink to="/services" onClick={() => setMobileOpen(false)}>
-                        Services
-                    </NavLink>
-                    <NavLink to="/contact" className={styles.cta} onClick={() => setMobileOpen(false)}>
-                        Contact
-                    </NavLink>
-                </nav>
             </div>
         </header>
     )

@@ -18,10 +18,37 @@ import './styles/App.css'
 function App() {
   const [persona, setPersona] = useState(null)
   const location = useLocation()
-
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [location])
+    const cursor = document.getElementById('customCursor')
+    if (!cursor) return
+
+    const moveCursor = (e) => {
+        cursor.style.left = `${e.clientX}px`
+        cursor.style.top = `${e.clientY}px`
+    }
+
+    // Expand cursor on hoverable elements
+    const handleMouseOver = (e) => {
+        if (e.target.closest('a, button, .persona-btn, .carousel-arrow, .project-card')) {
+            cursor.classList.add('hovering')
+        }
+    }
+    const handleMouseOut = (e) => {
+        if (e.target.closest('a, button, .persona-btn, .carousel-arrow, .project-card')) {
+            cursor.classList.remove('hovering')
+        }
+    }
+
+    window.addEventListener('mousemove', moveCursor)
+    document.addEventListener('mouseover', handleMouseOver)
+    document.addEventListener('mouseout', handleMouseOut)
+
+    return () => {
+        window.removeEventListener('mousemove', moveCursor)
+        document.removeEventListener('mouseover', handleMouseOver)
+        document.removeEventListener('mouseout', handleMouseOut)
+    }
+}, [])
 
   return (
     <div className="app">
@@ -44,6 +71,11 @@ function App() {
             </>
           } />
         </Routes>
+        <div className="app">
+          <div className="custom-cursor" id="customCursor"></div>
+          <Header />
+          <main>...</main>
+        </div>
       </main>
       <Footer />
     </div>

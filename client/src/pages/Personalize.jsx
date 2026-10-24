@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const PERSONAS = [
     {
@@ -32,6 +32,8 @@ const PERSONAS = [
 ]
 
 export default function Personalize({ onSelect, selectedPersona }) {
+    const [hintChanging, setHintChanging] = useState(false)
+
     // ── Scroll reveal ──
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
@@ -47,10 +49,13 @@ export default function Personalize({ onSelect, selectedPersona }) {
     }, [])
 
     const handleSelect = (persona) => {
+        // Trigger hint animation
+        setHintChanging(true)
+        setTimeout(() => setHintChanging(false), 300)
+
         onSelect(persona.id)
 
         // Smooth-scroll to the solution section after a short delay
-        // so the visitor sees the button activate before the page moves
         setTimeout(() => {
             document.getElementById('solution')?.scrollIntoView({
                 behavior: 'smooth',
@@ -59,7 +64,6 @@ export default function Personalize({ onSelect, selectedPersona }) {
         }, 280)
     }
 
-    // Find the hint for the currently selected persona
     const activePersona = PERSONAS.find((p) => p.id === selectedPersona)
 
     return (
@@ -74,7 +78,6 @@ export default function Personalize({ onSelect, selectedPersona }) {
                     </p>
                 </div>
 
-                {/* Persona buttons */}
                 <div
                     className="persona-grid reveal rd3"
                     role="group"
@@ -97,9 +100,8 @@ export default function Personalize({ onSelect, selectedPersona }) {
                     ))}
                 </div>
 
-                {/* Live region — announces hint changes to screen readers */}
                 <p
-                    className="persona-hint"
+                    className={`persona-hint ${hintChanging ? 'changing' : ''}`}
                     aria-live="polite"
                     aria-atomic="true"
                 >

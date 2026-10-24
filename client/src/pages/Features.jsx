@@ -64,7 +64,7 @@ export default function Features() {
     }, [])
 
     return (
-        <section id="features" className="section-features">
+        <section id="features" className="section-features section-light">
             <div className="container">
                 <p className="section-label reveal">What you actually get</p>
 
