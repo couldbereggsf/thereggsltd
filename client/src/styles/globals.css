@@ -1378,6 +1378,266 @@ header.scrolled {
     gap: 0.5rem;
     font-size: 0.8rem;
 }
+/* Project  */
+/* Stage */
+.carousel-stage {
+    position: relative;
+    height: 660px;
+    /* Increased from 520px */
+    perspective: 1400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 2rem 0 1rem;
+    user-select: none;
+}
+
+/* Cards */
+.carousel-card {
+    position: absolute;
+    width: min(720px, 92vw);
+    /* Increased from 440px */
+    min-height: 500px;
+    /* Increased from 400px */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 3rem;
+    /* More padding for the larger card */
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition:
+        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity, filter;
+    cursor: pointer;
+    transform-style: preserve-3d;
+}
+
+/* Active card — front and centre */
+.carousel-card.active {
+    transform: translateX(0) translateY(0) scale(1) rotateY(0deg);
+    opacity: 1;
+    filter: blur(0);
+    z-index: 10;
+    cursor: default;
+    box-shadow: var(--shadow-lg), 0 0 0 1px var(--border-acc);
+}
+
+/* Next cards — fanned right and behind */
+.carousel-card.next-1 {
+    transform: translateX(160px) translateY(-24px) scale(0.92) rotateY(-8deg);
+    opacity: 0.75;
+    filter: blur(0.5px);
+    z-index: 6;
+}
+
+.carousel-card.next-2 {
+    transform: translateX(320px) translateY(-48px) scale(0.84) rotateY(-16deg);
+    opacity: 0.45;
+    filter: blur(1px);
+    z-index: 5;
+}
+
+/* Previous cards — fanned left and behind */
+.carousel-card.prev-1 {
+    transform: translateX(-160px) translateY(-24px) scale(0.92) rotateY(8deg);
+    opacity: 0.75;
+    filter: blur(0.5px);
+    z-index: 6;
+}
+
+.carousel-card.prev-2 {
+    transform: translateX(-320px) translateY(-48px) scale(0.84) rotateY(16deg);
+    opacity: 0.45;
+    filter: blur(1px);
+    z-index: 5;
+}
+
+/* Hidden cards */
+.carousel-card.hidden {
+    transform: translateY(-50px) scale(0.7);
+    opacity: 0;
+    filter: blur(2px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Hover on active card — subtle lift */
+.carousel-card.active:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: var(--shadow-lg), 0 0 0 1px var(--accent);
+}
+
+/* WIP card styling — solid background to prevent text bleed */
+.carousel-card.project-card--wip {
+    border: 1px dashed var(--border-acc);
+    /* Changed from gradient to solid so text doesn't bleed through */
+    background: var(--surface);
+}
+
+/* Typography adjustments for the larger card */
+.carousel-card .project-title {
+    font-size: 1.6rem;
+    margin-top: 0.5rem;
+}
+
+.carousel-card .project-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 90%;
+    margin-bottom: auto;
+    /* Pushes metric to bottom */
+}
+
+.carousel-card .project-metric {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+/* Status badge (unchanged) */
+.project-status {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: var(--accent-dim);
+    color: var(--accent);
+    border: 1px solid var(--border-acc);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 0.65rem;
+    border-radius: 2rem;
+    animation: pulse-badge 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-badge {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* Controls (unchanged) */
+.carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.carousel-arrow {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 1.2rem;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.carousel-arrow:hover {
+    background: var(--accent-dim);
+    border-color: var(--accent);
+    transform: scale(1.06);
+}
+
+.carousel-dots {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.carousel-dot.active {
+    background: var(--accent);
+    transform: scale(1.4);
+}
+
+/*  Responsive Adjustments */
+@media (max-width: 900px) {
+    .carousel-stage {
+        height: 600px;
+    }
+
+    .carousel-card {
+        width: min(600px, 92vw);
+        min-height: 460px;
+        padding: 2rem;
+    }
+
+    .carousel-card.next-1 {
+        transform: translateX(80px) translateY(-16px) scale(0.93) rotateY(-6deg);
+    }
+
+    .carousel-card.prev-1 {
+        transform: translateX(-80px) translateY(-16px) scale(0.93) rotateY(6deg);
+    }
+
+    .carousel-card.next-2 {
+        transform: translateX(160px) translateY(-32px) scale(0.86) rotateY(-12deg);
+    }
+
+    .carousel-card.prev-2 {
+        transform: translateX(-160px) translateY(-32px) scale(0.86) rotateY(12deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .carousel-stage {
+        height: 540px;
+    }
+
+    .carousel-card {
+        width: min(400px, 95vw);
+        min-height: 400px;
+        padding: 1.5rem;
+    }
+
+    .carousel-card.next-1 {
+        transform: translateX(20px) translateY(-10px) scale(0.94) rotateY(-4deg);
+        opacity: 0.5;
+    }
+
+    .carousel-card.prev-1 {
+        transform: translateX(-20px) translateY(-10px) scale(0.94) rotateY(4deg);
+        opacity: 0.5;
+    }
+
+    .carousel-card.next-2,
+    .carousel-card.prev-2 {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
 
 /*  Pricing Section */
 .pricing-grid {
