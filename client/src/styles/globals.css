@@ -1101,19 +1101,58 @@ header.scrolled {
     border-collapse: collapse;
 }
 
-.ticker-table th,
+.ticker-table thead {
+    border-bottom: 1px solid var(--border);
+}
+
+.ticker-table th{
+        text-align: left;
+        padding: 0.6rem 1rem;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+        font-family: var(--font-mono);
+        font-weight: 500;
+    }
+
 .ticker-table td {
     padding: 0.75rem 1rem;
-    text-align: left;
     border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+
+.ticker-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+.ticker-symbol {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text);
+}
+.ticker-name {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+.ticker-price {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    color: var(--text);
 }
 
 .tick-up {
     color: #4ade80;
+    font-family: var(--font-mono);
+    font-weight: 600;
 }
 
 .tick-down {
     color: #ef4444;
+    font-family: var(--font-mono);
+    font-weight: 600;
 }
 
 .demo-footer {
@@ -1123,10 +1162,50 @@ header.scrolled {
     font-size: 0.7rem;
     border-top: 1px solid var(--border);
 }
+.tick-flash-up {
+    animation: flashUp 0.45s ease;
+}
+.tick-flash-down {
+    animation: flashDown 0.45s ease;
+}
 
-/* ================================================================
-   Quick Win Section
-   ================================================================ */
+@keyframes flashUp {
+    0% {
+        background: rgba(74, 222, 128, 0.15);
+    }
+
+    100% {
+        background: transparent;
+    }
+}
+
+@keyframes flashDown {
+    0% {
+        background: rgba(239, 68, 68, 0.15);
+    }
+
+    100% {
+        background: transparent;
+    }
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent);
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.github-link:hover {
+    color: var(--accent-lt);
+    transform: translateX(-2px);
+}
+
+
+/*  Quick Win Section */
 .audit-card {
     background: var(--surface);
     border-radius: var(--radius-lg);
@@ -1184,9 +1263,7 @@ header.scrolled {
     margin-bottom: 1rem;
 }
 
-/* ================================================================
-   Projects Section
-   ================================================================ */
+/*  Projects Section */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -1246,9 +1323,7 @@ header.scrolled {
     font-size: 0.8rem;
 }
 
-/* ================================================================
-   Pricing Section
-   ================================================================ */
+/*  Pricing Section */
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
