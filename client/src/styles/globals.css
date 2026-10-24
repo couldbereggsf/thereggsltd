@@ -1,8 +1,3 @@
-/* ================================================================
-   Reagan Fwamba — Portfolio Styles (Squircle + Ring + Cinematic)
-   ================================================================ */
-
-/* ─── Custom Properties ─── */
 :root {
     --bg: #0c1a1d;
     --bg-alt: #101f23;
@@ -1052,9 +1047,7 @@ header.scrolled {
     font-family: var(--font-mono);
 }
 
-/* ================================================================
-   Magic Demo Section
-   ================================================================ */
+/*  Magic Demo Section */
 .magic-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1206,6 +1199,23 @@ header.scrolled {
 
 
 /*  Quick Win Section */
+.quickwin-timer {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-top: 0.75rem;
+}
+.audit-result h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text);
+}
+
 .audit-card {
     background: var(--surface);
     border-radius: var(--radius-lg);
@@ -1240,6 +1250,14 @@ header.scrolled {
     border-radius: 2rem;
     cursor: pointer;
 }
+.stack-option:hover {
+    border-color: var(--border-acc);
+    background: var(--accent-dim);
+}
+
+.stack-option input:checked+* {
+    color: var(--accent);
+}
 
 .audit-select {
     width: 100%;
@@ -1262,6 +1280,44 @@ header.scrolled {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+.result-intro {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.result-tips li {
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding-left: 0.25rem;
+}
+
+.result-tips li::marker {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.result-cta {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.result-cta a {
+    color: var(--accent);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.result-cta a:hover {
+    color: var(--accent-lt);
+    text-decoration: underline;
+}
+
 
 /*  Projects Section */
 .projects-grid {
