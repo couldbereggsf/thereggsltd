@@ -1,0 +1,67 @@
+export const HERO_SLIDES = [
+    // ── Professional / Impact ──
+    {
+        type: 'project',
+        icon: 'ph-shield-check',
+        tag: 'Featured Project',
+        title: 'Cloud Security Dashboard',
+        desc: 'Cut incident response time by 65% using AWS GuardDuty & React.',
+        link: '#projects',
+    },
+    {
+        type: 'interest',
+        icon: 'ph-apple-logo',
+        tag: 'Tech & Gear',
+        title: 'Apple M4 Architecture',
+        desc: 'Obsessed with the efficiency of Apple Silicon for local AI inference.',
+        link: 'https://www.apple.com/',
+    },
+    {
+        type: 'project',
+        icon: 'ph-chart-line-up',
+        tag: 'Featured Project',
+        title: 'NSE Analytics Platform',
+        desc: 'Real-time market data pipeline processing 10k+ events/sec.',
+        link: '#projects',
+    },
+    {
+        type: 'interest',
+        icon: 'ph-car',
+        tag: 'Automotive',
+        title: 'Koenigsegg Jesko',
+        desc: 'Pure engineering. A theoretical top speed of 330+ mph.',
+        link: 'https://www.koenigsegg.com/',
+    },
+    {
+        type: 'interest',
+        icon: 'ph-car',
+        tag: 'Automotive',
+        title: 'Koenigsegg Jesko',
+        desc: 'Pure engineering. A theoretical top speed of 330+ mph.',
+        link: 'https://www.ferrari.com/en/',
+    },
+    {
+        type: 'impact',
+        icon: 'ph-cloud-check',
+        tag: 'Business Impact',
+        title: '30% Cloud Cost Reduction',
+        desc: 'Right-sized Azure AKS clusters, saving clients $1,200/mo.',
+        link: '#contact',
+    },
+    {
+        type: 'interest',
+        icon: 'ph-airplane',
+        tag: 'Aviation',
+        title: 'Boom Supersonic XB-1',
+        desc: 'The return of supersonic flight. First test flights underway.',
+        link: 'https://boomsupersonic.com/',
+    },
+    {
+        type: 'interest',
+        icon: 'ph-flag-checkered',
+        tag: 'Motorsport',
+        title: 'F1 2026 Regulations',
+        desc: 'Active aero and 50% electric power. The biggest shake-up in years.',
+        link: 'https://www.formula1.com/',
+    }
+]
