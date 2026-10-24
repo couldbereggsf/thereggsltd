@@ -11,7 +11,6 @@ import Features from './pages/Features'
 import MagicDemo from './pages/MagicDemo'
 import QuickWin from './pages/QuickWin'
 import Projects from './pages/Projects'
-import Pricing from './pages/Pricing'
 import CTA from './pages/CTA'
 import Contact from './pages/Contact'
 import './styles/App.css'
@@ -40,7 +39,6 @@ function App() {
               <MagicDemo />
               <QuickWin />
               <Projects />
-              <Pricing />
               <CTA />
               <Contact />
             </>
