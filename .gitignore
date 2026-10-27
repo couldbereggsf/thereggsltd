@@ -4,3 +4,6 @@ server/.env
 client/node_modules/
 server/node_modules/
 feat/react-migration
+server/target/
+.idea/
+.vscode/

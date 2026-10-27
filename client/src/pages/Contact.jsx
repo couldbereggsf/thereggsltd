@@ -89,18 +89,25 @@ export default function Contact() {
         setStatus('loading')
 
         try {
-            // Simulate API call (Phase 2 backend will replace this)
-            await new Promise((resolve) => setTimeout(resolve, 1200))
+            const response = await fetch('http://localhost:8080/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(form),
+            })
 
-            // Success
+            if (!response.ok) {
+                const errorData = await response.json()
+                throw new Error(errorData.message || 'Failed to send message')
+            }
+
             setStatus('success')
             setForm(INITIAL_FORM)
-
-            // Reset back to form after 5 seconds
             setTimeout(() => setStatus('idle'), 5000)
         } catch (err) {
             setStatus('error')
-            setErrMsg('Something went wrong. Please try emailing me directly.')
+            setErrMsg(err.message || 'Something went wrong. Please try emailing me directly.')
         }
     }
 
