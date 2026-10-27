@@ -1,4 +1,4 @@
-package com.thereggsltd.portfolio_server;
+package com.thereggsltd.portfolioserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
