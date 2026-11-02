@@ -54,53 +54,44 @@ The live site as it stands today. No build step, no dependencies, deployed direc
 | Version control | Git + GitHub |
 
 ---
-
-### Phase 2 — Frontend Migration (In Progress)
-
-Migrating the static site to a component-based React application with a lightweight Node.js + Express backend to support the contact form, stack audit API, and analytics event ingestion.
-
-| Layer | Technology |
-|-------|-----------|
-| Frontend framework | React (Vite) |
-| Routing | React Router |
-| Styling | CSS Modules + existing design system |
-| Backend runtime | Node.js |
-| Backend framework | Express.js |
-| API layer | RESTful JSON endpoints |
-| Form handling | Express + Nodemailer |
-| Dev tooling | ESLint, Prettier, Vitest |
-| Hosting | Netlify (frontend) + Render or Railway (Node backend) |
-
-**Branch:** `feat/react-migration` — work in progress off `dev`
+### Phase 2 — Frontend Migration (Completed)
+Migrated the static site to a component-based React application.
+- **Framework:** React (Vite).
+- **Routing:** React Router.
+- **Features:** 
+  - Fully interactive Hero with typewriter and custom solar-system canvas animation.
+  - Interactive 3D stacked carousel for Projects.
+  - Liquid glass UI effects and Apple-style floating navigation dock.
+  - Local state management for persona selection and dynamic content rendering.
+- **Hosting:** Netlify.
 
 ---
-
-### Phase 3 — Backend Overhaul (Planned)
+## Phase 3 — Backend Overhaul (Planned)
 
 Replacing the Node/Express backend with a production-grade Java and Spring Boot service layer, containerised and deployed to AWS with full DevSecOps pipelines.
 
 | Layer | Technology |
-|-------|-----------|
-| Backend language | Java 21 |
-| Backend framework | Spring Boot 3, Spring Security, Spring Data JPA |
-| API layer | RESTful + optional GraphQL |
-| Database | PostgreSQL (RDS on AWS) |
-| Caching | Redis (ElastiCache) |
-| Containerisation | Docker, Kubernetes (EKS) |
-| Cloud provider | AWS — EC2, ECS/EKS, S3, CloudFront, Route 53, Secrets Manager |
-| CI/CD | GitHub Actions → AWS CodePipeline |
-| Infrastructure as Code | Terraform |
-| Observability | AWS CloudWatch, Datadog |
-| Security | OWASP best practices, IAM least-privilege, SSL/TLS, SAST via SonarQube |
-| Testing | JUnit 5, Mockito, Testcontainers |
+| :--- | :--- |
+| **Backend language** | Java 21 |
+| **Backend framework** | Spring Boot 3, Spring Security, Spring Data JPA |
+| **API layer** | RESTful + optional GraphQL |
+| **Database** | PostgreSQL (RDS on AWS) |
+| **Caching** | Redis (ElastiCache) |
+| **Containerisation** | Docker, Kubernetes (EKS) |
+| **Cloud provider** | AWS — EC2, ECS/EKS, S3, CloudFront, Route 53, Secrets Manager |
+| **CI/CD** | GitHub Actions → AWS CodePipeline |
+| **Infrastructure as Code** | Terraform |
+| **Observability** | AWS CloudWatch, Datadog |
+| **Security** | OWASP best practices, IAM least-privilege, SSL/TLS, SAST via SonarQube |
+| **Testing** | JUnit 5, Mockito, Testcontainers |
 
-**Goal:** a fully observable, horizontally scalable backend that mirrors production-grade fintech infrastructure — and doubles as a live demonstration of the skills offered to clients.
+> **Goal:** A fully observable, horizontally scalable backend that mirrors production-grade fintech infrastructure — and doubles as a live demonstration of the skills offered to clients.
 
 ---
 
 ## Project Structure
 
-### Current (Phase 1)
+### Completed (Phase 1)
 
 ```
 portfolio/
@@ -115,7 +106,7 @@ portfolio/
 └── README.md               # This file
 ```
 
-### Planned (Phase 2 — React + Node/Express)
+### Completed (Phase 2 — React + Node/Express)
 
 ```
 portfolio/
@@ -137,7 +128,7 @@ portfolio/
 └── README.md
 ```
 
-### Planned (Phase 3 — Java + Spring Boot)
+### Current (Phase 3 — Java + Spring Boot)
 
 ```
 portfolio/
